@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FitnessTracker.Views.UserLoginPage"
+             BackgroundColor="#121212">
+    <ContentPage.Content>
+        <StackLayout Padding="30" Spacing="25">
+
+            <!-- Header -->
+            <StackLayout VerticalOptions="Start" HorizontalOptions="Center">
+                <Image Source="login_icon.png" HeightRequest="100" WidthRequest="100"/>
+                <Label Text="Welcome Back!" FontSize="26" 
+                       TextColor="White" FontAttributes="Bold"
+                       HorizontalTextAlignment="Center"/>
+            </StackLayout>
+
+            <!-- Input Fields -->
+            <Frame CornerRadius="10" BackgroundColor="#1E1E1E" Padding="10">
+                <Entry x:Name="emailEntry"
+                       Placeholder="Email" 
+                       TextColor="White" 
+                       PlaceholderColor="#BBBBBB" 
+                       Keyboard="Email"/>
+            </Frame>
+            <Frame CornerRadius="10" BackgroundColor="#1E1E1E" Padding="10">
+                <Entry x:Name="passwordEntry"
+                       Placeholder="Password" 
+                       IsPassword="True" 
+                       TextColor="White" 
+                       PlaceholderColor="#BBBBBB"/>
+            </Frame>
+
+            <!-- Login Button -->
+            <Button Text="Login"
+                    BackgroundColor="#FF6F00"
+                    TextColor="White"
+                    FontSize="18"
+                    CornerRadius="30"
+                    HeightRequest="55"
+                    FontAttributes="Bold"
+                    VerticalOptions="Center"
+                    Clicked="OnLoginClicked"/>
+
+            <!-- Navigation Links -->
+            <Label Text="Forgot Password?"
+                   TextColor="#FF6F00" FontSize="14"
+                   HorizontalTextAlignment="Center"
+                   Padding="5"
+                   FontAttributes="Bold">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnForgotPasswordTapped"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Label Text="New User? Sign Up"
+                   TextColor="#FF6F00" FontSize="14"
+                   HorizontalTextAlignment="Center"
+                   Padding="5"
+                   FontAttributes="Bold">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnSignUpTapped"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

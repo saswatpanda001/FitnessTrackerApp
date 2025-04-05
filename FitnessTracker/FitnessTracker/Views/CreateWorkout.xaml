@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FitnessTracker.Views.CreateWorkout"
+             Title="Create Workout">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="30" Spacing="20" BackgroundColor="#FFF3E0">
+                <Button Text="🏠 Home" Clicked="OnHomeClicked" 
+                    BackgroundColor="Transparent" TextColor="Blue" 
+                    HorizontalOptions="Start" FontAttributes="Bold"/>
+
+
+                <!-- Header -->
+                <Label Text="Create Your Workout Plan"
+                       FontSize="26"
+                       TextColor="#FF6F00"
+                       FontAttributes="Bold"
+                       HorizontalTextAlignment="Center"/>
+
+                <!-- Workout Name -->
+                <Entry x:Name="workoutNameEntry"
+                       Placeholder="Workout Name"
+                       TextColor="Black"
+                       BackgroundColor="White"
+                       PlaceholderColor="Gray"
+                       FontSize="16" />
+
+                <!-- Workout Description -->
+                <Editor x:Name="workoutDescriptionEditor"
+                        Placeholder="Description"
+                        TextColor="Black"
+                        BackgroundColor="White"
+                        PlaceholderColor="Gray"
+                        FontSize="16"
+                        HeightRequest="100"/>
+
+                <!-- Start Time Picker -->
+                <Label Text="Start Time:" TextColor="Black" FontSize="16" />
+                <TimePicker x:Name="startTimePicker" />
+
+                <!-- End Time Picker -->
+                <Label Text="End Time:" TextColor="Black" FontSize="16" />
+                <TimePicker x:Name="endTimePicker" />
+
+                <!-- Save Button -->
+                <Button Text="Save Workout"
+                        BackgroundColor="#FF6F00"
+                        TextColor="White"
+                        CornerRadius="30"
+                        HeightRequest="55"
+                        FontAttributes="Bold"
+                        Clicked="OnSaveWorkoutClicked" />
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

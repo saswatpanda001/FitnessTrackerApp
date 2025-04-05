@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FitnessTracker.Views.ProfilePage"
+             BackgroundColor="#121212"
+             Title="My Profile">
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="20" Spacing="15" VerticalOptions="FillAndExpand">
+
+                <!-- Home Button -->
+                <Button Text="🏠 Home"
+                        Clicked="OnHomeClicked"
+                        BackgroundColor="Transparent"
+                        TextColor="Blue"
+                        HorizontalOptions="Start"
+                        FontAttributes="Bold"/>
+
+                <!-- Header -->
+                <Label Text="Update Profile"
+                       FontSize="24"
+                       TextColor="White"
+                       HorizontalOptions="Center"
+                       FontAttributes="Bold" />
+
+                <!-- Username -->
+                <Label Text="Username"
+                       TextColor="#BBBBBB"
+                       FontSize="14" />
+                <Frame CornerRadius="10" BackgroundColor="#1E1E1E" Padding="10">
+                    <Entry x:Name="usernameEntry"
+                           Placeholder="Enter username"
+                           TextColor="White"
+                           PlaceholderColor="#777" />
+                </Frame>
+
+                <!-- Email -->
+                <Label Text="Email"
+                       TextColor="#BBBBBB"
+                       FontSize="14" />
+                <Frame CornerRadius="10" BackgroundColor="#1E1E1E" Padding="10">
+                    <Entry x:Name="emailEntry"
+                           Placeholder="Enter email"
+                           Keyboard="Email"
+                           TextColor="White"
+                           PlaceholderColor="#777" />
+                </Frame>
+
+                <!-- Full Name -->
+                <Label Text="Full Name"
+                       TextColor="#BBBBBB"
+                       FontSize="14" />
+                <Frame CornerRadius="10" BackgroundColor="#1E1E1E" Padding="10">
+                    <Entry x:Name="fullNameEntry"
+                           Placeholder="Enter full name"
+                           TextColor="White"
+                           PlaceholderColor="#777" />
+                </Frame>
+
+                <!-- Age -->
+                <Label Text="Age"
+                       TextColor="#BBBBBB"
+                       FontSize="14" />
+                <Frame CornerRadius="10" BackgroundColor="#1E1E1E" Padding="10">
+                    <Entry x:Name="ageEntry"
+                           Placeholder="Enter age"
+                           Keyboard="Numeric"
+                           TextColor="White"
+                           PlaceholderColor="#777" />
+                </Frame>
+
+                <!-- Weight -->
+                <Label Text="Weight (kg)"
+                       TextColor="#BBBBBB"
+                       FontSize="14" />
+                <Frame CornerRadius="10" BackgroundColor="#1E1E1E" Padding="10">
+                    <Entry x:Name="weightEntry"
+                           Placeholder="Enter weight"
+                           Keyboard="Numeric"
+                           TextColor="White"
+                           PlaceholderColor="#777" />
+                </Frame>
+
+                <!-- Height -->
+                <Label Text="Height (cm)"
+                       TextColor="#BBBBBB"
+                       FontSize="14" />
+                <Frame CornerRadius="10" BackgroundColor="#1E1E1E" Padding="10">
+                    <Entry x:Name="heightEntry"
+                           Placeholder="Enter height"
+                           Keyboard="Numeric"
+                           TextColor="White"
+                           PlaceholderColor="#777" />
+                </Frame>
+
+                <!-- Save Button -->
+                <Button Text="Save Changes"
+                        BackgroundColor="#FF6F00"
+                        TextColor="White"
+                        FontSize="18"
+                        CornerRadius="30"
+                        HeightRequest="55"
+                        FontAttributes="Bold"
+                        Clicked="OnSaveChangesClicked" />
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

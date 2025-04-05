@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FitnessTracker.Views"
+             x:Class="FitnessTracker.Views.ExerciseTrackerPage"
+             BackgroundColor="#121212">
+    <ContentPage.Content>
+        <StackLayout Padding="30" Spacing="20">
+            <Button Text="🏠 Home" Clicked="OnHomeClicked" 
+                    BackgroundColor="Transparent" TextColor="Blue" 
+                    HorizontalOptions="Start" FontAttributes="Bold"/>
+
+
+            <!-- Header -->
+            <Label Text="Exercise Tracker" FontSize="24" 
+                   TextColor="White" FontAttributes="Bold"
+                   HorizontalTextAlignment="Center"/>
+
+           
+
+            <!-- Search -->
+            <SearchBar Placeholder="Search by exercise name"
+                       TextColor="White"
+                       PlaceholderColor="#BBBBBB"
+                       BackgroundColor="#1E1E1E"
+                       Text="{Binding SearchText, Mode=TwoWay}"
+                       SearchCommand="{Binding SearchCommand}"/>
+
+
+            <ScrollView>
+                <StackLayout Padding="20" Spacing="20">
+
+
+                    <!-- Exercise Logging Section -->
+                    <Frame BackgroundColor="#1E1E1E" Padding="15" CornerRadius="10">
+                        <StackLayout Spacing="10">
+
+                            <!-- Exercise Name -->
+                            <Label Text="Exercise Name" TextColor="#BBBBBB" FontSize="14"/>
+                            <Entry 
+               TextColor="White"
+               PlaceholderColor="#BBBBBB"
+               Text="{Binding NewExercise.ExerciseName, Mode=TwoWay}"/>
+
+                            <!-- Reps -->
+                            <Label Text="Reps" TextColor="#BBBBBB" FontSize="14"/>
+                            <Entry
+               Keyboard="Numeric"
+               TextColor="White"
+               PlaceholderColor="#BBBBBB"
+               Text="{Binding NewExercise.Reps, Mode=TwoWay}"/>
+
+                            <!-- Sets -->
+                            <Label Text="Sets" TextColor="#BBBBBB" FontSize="14"/>
+                            <Entry 
+               Keyboard="Numeric"
+               TextColor="White"
+               PlaceholderColor="#BBBBBB"
+               Text="{Binding NewExercise.Sets, Mode=TwoWay}"/>
+
+                            <!-- Time in Minutes -->
+                            <Label Text="Time (minutes)" TextColor="#BBBBBB" FontSize="14"/>
+                            <Entry 
+               Keyboard="Numeric"
+               TextColor="White"
+               PlaceholderColor="#BBBBBB"
+               Text="{Binding NewExercise.TimeInMinutes, Mode=TwoWay}"/>
+
+                            <!-- Log Button -->
+                            <Button Text="Log Exercise"
+                                BackgroundColor="#FF6F00"
+                                TextColor="White"
+                                FontSize="18"
+                                CornerRadius="30"
+                                HeightRequest="50"
+                                FontAttributes="Bold"
+                                Command="{Binding LogExerciseCommand}"/>        
+                        </StackLayout>
+                    </Frame>
+
+                    
+
+                    <!-- Logged Exercises List -->
+                    <Label Text="Your Logged Exercises" FontSize="18" FontAttributes="Bold" TextColor="Black"/>
+                    <StackLayout BindableLayout.ItemsSource="{Binding FilteredExercises}" Spacing="10">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <Frame BackgroundColor="#1E1E1E" CornerRadius="15" Padding="15" Margin="0,0,0,5">
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+
+                                        <!-- Text Content -->
+                                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" Spacing="5">
+                                            <Label Text="{Binding ExerciseName}" TextColor="White" FontSize="16" FontAttributes="Bold"/>
+
+                                            <StackLayout Spacing="5" Padding="0,5,0,0">
+                                                <Label Text="{Binding Reps, StringFormat='Reps: {0}'}"
+           TextColor="#BBBBBB"
+           FontSize="13" />
+                                                <Label Text="{Binding Sets, StringFormat='Sets: {0}'}"
+           TextColor="#BBBBBB"
+           FontSize="13" />
+                                                <Label Text="{Binding TimeInMinutes, StringFormat='Time: {0} min'}"
+           TextColor="#BBBBBB"
+           FontSize="13" />
+                                                <Label Text="{Binding CreatedAt, StringFormat='Created At: {0:dd MMM yyyy hh:mm tt}'}"
+           TextColor="#BBBBBB"
+           FontSize="13" />
+                                            </StackLayout>
+
+                                        </StackLayout>
+
+                                        <!-- Delete Icon -->
+                                        <Image Source="delete_icon.png"
+                                       HeightRequest="24" WidthRequest="24"
+                                       HorizontalOptions="End"
+                                       VerticalOptions="Center">
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="OnDeleteTapped" />
+                                            </Image.GestureRecognizers>
+                                        </Image>
+
+                                    </StackLayout>
+                                </Frame>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+
+                </StackLayout>
+            </ScrollView>
+
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

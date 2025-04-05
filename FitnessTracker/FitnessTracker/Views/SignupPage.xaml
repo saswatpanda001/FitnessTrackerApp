@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FitnessTracker.Views.SignupPage"
+             BackgroundColor="#121212">
+
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid Padding="30" RowSpacing="20">
+
+                <!-- Header -->
+                <Grid Row="0" HorizontalOptions="Center">
+                    <Image Source="signup_icon.png" HeightRequest="100" WidthRequest="100"/>
+                    <Label Text="Create Your Account" FontSize="26" 
+                           TextColor="White" FontAttributes="Bold"
+                           HorizontalTextAlignment="Center"/>
+                </Grid>
+
+                <!-- Username -->
+                <Grid Row="1">
+                    <Frame CornerRadius="10" BackgroundColor="#1E1E1E" Padding="10">
+                        <Entry x:Name="usernameEntry"
+                               Placeholder="Username" 
+                               TextColor="White" 
+                               PlaceholderColor="#BBBBBB"/>
+                    </Frame>
+                </Grid>
+
+                <!-- Email -->
+                <Grid Row="2">
+                    <Frame CornerRadius="10" BackgroundColor="#1E1E1E" Padding="10">
+                        <Entry x:Name="emailEntry"
+                               Placeholder="Email"
+                               Keyboard="Email"
+                               TextColor="White" 
+                               PlaceholderColor="#BBBBBB"/>
+                    </Frame>
+                </Grid>
+
+                <!-- Password -->
+                <Grid Row="3">
+                    <Frame CornerRadius="10" BackgroundColor="#1E1E1E" Padding="10">
+                        <Entry x:Name="passwordEntry"
+                               Placeholder="Password"
+                               IsPassword="True"
+                               TextColor="White"
+                               PlaceholderColor="#BBBBBB"/>
+                    </Frame>
+                </Grid>
+
+                <!-- Confirm Password -->
+                <Grid Row="4">
+                    <Frame CornerRadius="10" BackgroundColor="#1E1E1E" Padding="10">
+                        <Entry x:Name="confirmPasswordEntry"
+                               Placeholder="Confirm Password"
+                               IsPassword="True"
+                               TextColor="White"
+                               PlaceholderColor="#BBBBBB"/>
+                    </Frame>
+                </Grid>
+
+                <!-- Sign Up Button -->
+                <Grid Row="5">
+                    <Button Text="Sign Up"
+                            BackgroundColor="#FF6F00"
+                            TextColor="White"
+                            FontSize="18"
+                            CornerRadius="30"
+                            HeightRequest="55"
+                            FontAttributes="Bold"
+                            VerticalOptions="Center"
+                            Clicked="OnSignUpClicked"/>
+                </Grid>
+
+                <!-- Navigation Link -->
+                <Grid Row="6">
+                    <Label Text="Already have an account? Log in"
+                           TextColor="#FF6F00" FontSize="14"
+                           HorizontalTextAlignment="Center"
+                           Padding="5"
+                           FontAttributes="Bold">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnLoginTapped"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Grid>
+
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+
+</ContentPage>

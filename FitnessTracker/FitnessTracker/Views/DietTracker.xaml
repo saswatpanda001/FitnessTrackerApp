@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FitnessTracker.Views.DietTracker">
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="20" Spacing="15">
+                <Button Text="🏠 Home" Clicked="OnHomeClicked" 
+                    BackgroundColor="Transparent" TextColor="Blue" 
+                    HorizontalOptions="Start" FontAttributes="Bold"/>
+
+
+                <!-- Goal Selection -->
+                <Label Text="Select Your Fitness Goal:"
+                       FontSize="16"
+                       TextColor="Black"/>
+
+                <Picker x:Name="goalPicker"
+                        Title="Choose a goal"
+                        SelectedIndexChanged="OnGoalSelected"
+                        BackgroundColor="White"
+                        TextColor="Black"/>
+
+                <!-- Meal Plan List -->
+                <CollectionView x:Name="mealPlanList"
+                                ItemsSource="{Binding .}">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Vertical" ItemSpacing="10"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame Padding="10" Margin="5"
+                                   CornerRadius="10"
+                                   BackgroundColor="Orange"
+                                   HasShadow="True" >
+                                <StackLayout Orientation="Vertical" Spacing="8" Padding="10" BackgroundColor="White" >
+
+                                    <!-- Category Tag -->
+                                    <Frame BackgroundColor="#FF7043" Padding="5,2" CornerRadius="5" HorizontalOptions="Start">
+                                        <Label Text="{Binding Category}" TextColor="White" FontSize="14" FontAttributes="Bold"/>
+                                    </Frame>
+
+                                    <!-- Breakfast -->
+                                    <StackLayout Orientation="Vertical" BackgroundColor="#FFF3E0" Padding="5" >
+                                        <Label Text="🍳 Breakfast" FontAttributes="Bold" TextColor="#E65100"/>
+                                        <Label Text="{Binding Breakfast}" TextColor="#5D4037"/>
+                                    </StackLayout>
+
+                                    <!-- Lunch -->
+                                    <StackLayout Orientation="Vertical" BackgroundColor="#E3F2FD" Padding="5">
+                                        <Label Text="🥗 Lunch" FontAttributes="Bold" TextColor="#1565C0"/>
+                                        <Label Text="{Binding Lunch}" TextColor="#1A237E"/>
+                                    </StackLayout>
+
+                                    <!-- Dinner -->
+                                    <StackLayout Orientation="Vertical" BackgroundColor="#F3E5F5" Padding="5" >
+                                        <Label Text="🌙 Dinner" FontAttributes="Bold" TextColor="#6A1B9A"/>
+                                        <Label Text="{Binding Dinner}" TextColor="#4A148C"/>
+                                    </StackLayout>
+
+                                </StackLayout>
+
+                                
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FitnessTracker.Views.AboutPage"
+             xmlns:vm="clr-namespace:FitnessTracker.ViewModels"
+             Title="{Binding Title}">
+
+
+    <Grid Padding="20">
+        <!-- Background Gradient -->
+        <Grid.Background>
+            <LinearGradientBrush>
+                <GradientStop Color="#1E1E1E" Offset="0.0" />
+                <GradientStop Color="#292929" Offset="1.0" />
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                <ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
+                    <Image Source="fitness_logo.png" VerticalOptions="Center" HeightRequest="64" />
+                </ContentView>
+            </StackLayout>
+        </StackLayout>
+        
+        
+
+        <StackLayout VerticalOptions="CenterAndExpand" Spacing="20">
+            <!-- Main Tagline -->
+            <Label Text="Transform Your Fitness Journey!" 
+                   FontSize="24" TextColor="White"
+                   FontAttributes="Bold" HorizontalTextAlignment="Center"
+                   Opacity="0" x:Name="TaglineLabel"/>
+
+            <!-- Feature Cards -->
+            <Frame BackgroundColor="#1F1F1F" Padding="15" CornerRadius="15" Opacity="0" x:Name="FeatureCard1">
+                <StackLayout>
+                    <Label Text="🏋️ Track Workouts"
+                           FontSize="18" TextColor="White" FontAttributes="Bold"/>
+                    <Label Text="Log exercises, sets, and reps to monitor progress."
+                           FontSize="14" TextColor="#BBBBBB"/>
+                </StackLayout>
+            </Frame>
+
+            <Frame BackgroundColor="#1F1F1F" Padding="15" CornerRadius="15" Opacity="0" x:Name="FeatureCard2">
+                <StackLayout>
+                    <Label Text="🍎 Track Nutrition"
+                           FontSize="18" TextColor="White" FontAttributes="Bold"/>
+                    <Label Text="Maintain a balanced diet with calorie tracking."
+                           FontSize="14" TextColor="#BBBBBB"/>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+
+        <!-- Buttons -->
+        <StackLayout VerticalOptions="End" Padding="20">
+            <Button Text="Get Started"
+                    BackgroundColor="#FF6F00"
+                    TextColor="White"
+                    CornerRadius="25"
+                    FontSize="18"
+                    HeightRequest="50"
+                    Clicked="OnGetStartedClicked"
+                    Opacity="0"
+                    x:Name="GetStartedButton"/>
+
+            <Button Text="Sign In"
+                    BackgroundColor="Transparent"
+                    TextColor="#FF6F00"
+                    FontSize="16"
+                    HeightRequest="50"
+                    Clicked="OnSignInClicked"
+                    Opacity="0"
+                    x:Name="SignInButton"/>
+        </StackLayout>
+    </Grid>
+</ContentPage>
